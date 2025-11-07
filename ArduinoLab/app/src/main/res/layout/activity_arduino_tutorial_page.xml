@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/arduinotutorialpage"
+    tools:context=".ArduinoTutorialPage">
+
+    <RelativeLayout
+        android:id="@+id/topBar"
+        android:background="#273F51B5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="Arduino Tutorial"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/addIconButtonID"
+            android:src="@drawable/addicon"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:id="@+id/basicProgrammingRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_gradient_rounded"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <View
+                        android:id="@+id/iconBasic"
+                        android:layout_width="64dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#008080"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconBasic"
+                        android:layout_centerHorizontal="true"
+                        android:text="Basic Programming"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/serialPortRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_gradient_rounded"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <View
+                        android:id="@+id/iconSerial"
+                        android:layout_width="64dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#008080"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconSerial"
+                        android:layout_centerHorizontal="true"
+                        android:text="Serial Port"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:id="@+id/LEDsRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_gradient_rounded"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <View
+                        android:id="@+id/iconLEDs"
+                        android:layout_width="64dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#008080"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconLEDs"
+                        android:layout_centerHorizontal="true"
+                        android:text="LEDs"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/buttonsRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_gradient_rounded"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <View
+                        android:id="@+id/iconButtons"
+                        android:layout_width="64dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#008080"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconButtons"
+                        android:layout_centerHorizontal="true"
+                        android:text="Buttons, digital inputs"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:id="@+id/servoRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_gradient_rounded"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <View
+                        android:id="@+id/iconServo"
+                        android:layout_width="64dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#008080"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconServo"
+                        android:layout_centerHorizontal="true"
+                        android:text="Servo"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/ledDisplayRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_gradient_rounded"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <View
+                        android:id="@+id/iconLEDDisplays"
+                        android:layout_width="64dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#008080"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconLEDDisplays"
+                        android:layout_centerHorizontal="true"
+                        android:text="LED displays"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:id="@+id/lcdDisplayRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_gradient_rounded"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <View
+                        android:id="@+id/iconLcdOled"
+                        android:layout_width="64dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#008080"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconLcdOled"
+                        android:layout_centerHorizontal="true"
+                        android:text="LCD / OLED Displays"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/movementRelativeDisplay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_gradient_rounded"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <View
+                        android:id="@+id/iconDistance"
+                        android:layout_width="64dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#008080"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconDistance"
+                        android:layout_centerHorizontal="true"
+                        android:text="Movement / Distance"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:id="@+id/temperatureRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_gradient_rounded"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <View
+                        android:id="@+id/iconTemperature"
+                        android:layout_width="64dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#008080"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconTemperature"
+                        android:layout_centerHorizontal="true"
+                        android:text="Temperature / Humidity"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lightSensorRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_gradient_rounded"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <View
+                        android:id="@+id/iconLight"
+                        android:layout_width="64dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#008080"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconLight"
+                        android:layout_centerHorizontal="true"
+                        android:text="Light Sensor"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:id="@+id/soundModuleRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_gradient_rounded"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <View
+                        android:id="@+id/iconSound"
+                        android:layout_width="64dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#008080"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconSound"
+                        android:layout_centerHorizontal="true"
+                        android:text="Sound Modules"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/pirSensorRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_gradient_rounded"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <View
+                        android:id="@+id/iconPIRSenosor"
+                        android:layout_width="64dp"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#008080"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconPIRSenosor"
+                        android:layout_centerHorizontal="true"
+                        android:text="PIR Sensor"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

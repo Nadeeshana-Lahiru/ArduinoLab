@@ -5,6 +5,175 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/show_details_page_background"
     tools:context=".AddTutorial">
+
+    <ImageView
+        android:id="@+id/backIconID"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backicon" />
+
+    <TextView
+        android:id="@+id/addTitleHeaderID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add New Tutorial"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/backIconID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/backIconID" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backIconID">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CATEGORY"
+                android:textColor="#FFEB3B"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/categoryTextID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Basic Programming"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TITLE"
+                android:textColor="#FFEB3B"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/addTitleEditID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#80FFFFFF"
+                android:hint="e.g., How to Blink an LED"
+                android:textColor="@color/white"
+                android:textColorHint="#80FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DESCRIPTION"
+                android:textColor="#FFEB3B"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/addDescriptionEditID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#80FFFFFF"
+                android:gravity="top|start"
+                android:hint="A short description of the tutorial..."
+                android:lines="4"
+                android:maxLines="6"
+                android:minLines="3"
+                android:textColor="@color/white"
+                android:textColorHint="#80FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IMAGE NAME (from @drawable)"
+                android:textColor="#FFEB3B"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/addImageNameEditID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#80FFFFFF"
+                android:hint="e.g., led_blink_image (no .png)"
+                android:textColor="@color/white"
+                android:textColorHint="#80FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PIN CONFIGURATION"
+                android:textColor="#FFEB3B"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/addPinConfigEditID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#80FFFFFF"
+                android:gravity="top|start"
+                android:hint="LED Anode -> Pin 13\nLED Cathode -> GND"
+                android:lines="3"
+                android:textColor="@color/white"
+                android:textColorHint="#80FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SAMPLE CODE"
+                android:textColor="#FFEB3B"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/addSampleCodeEditID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:backgroundTint="#80FFFFFF"
+                android:gravity="top|start"
+                android:hint="void setup() {\n  pinMode(13, OUTPUT);\n}"
+                android:lines="6"
+                android:textColor="@color/white"
+                android:textColorHint="#80FFFFFF" />
+
+            <Button
+                android:id="@+id/saveButtonID"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:backgroundTint="#0B7181"
+                android:text="SAVE TUTORIAL"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

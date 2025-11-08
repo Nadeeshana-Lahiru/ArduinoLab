@@ -69,8 +69,94 @@ public class ArduinoTutorialPage extends AppCompatActivity {
             }
         });
 
-        // ... ADD setOnClickListener FOR ALL OTHER RelativeLayouts ...
-        // (buttonsSRel, servoRel, etc.)
-        // Just copy the block above and change the "CATEGORY_NAME" string.
+// 4. Buttons
+        buttonsSRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listIntent = new Intent(ArduinoTutorialPage.this, BasicProgrammings.class);
+                listIntent.putExtra("CATEGORY_NAME", "Buttons");
+                startActivity(listIntent);
+            }
+        });
+
+        // 5. Servo
+        servoRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listIntent = new Intent(ArduinoTutorialPage.this, BasicProgrammings.class);
+                listIntent.putExtra("CATEGORY_NAME", "Servo");
+                startActivity(listIntent);
+            }
+        });
+
+        // 6. LED Displays
+        ledDisplaysRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listIntent = new Intent(ArduinoTutorialPage.this, BasicProgrammings.class);
+                listIntent.putExtra("CATEGORY_NAME", "LED Displays");
+                startActivity(listIntent);
+            }
+        });
+
+        // 7. LCD / OLED Displays
+        lcdDisplaysRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listIntent = new Intent(ArduinoTutorialPage.this, BasicProgrammings.class);
+                listIntent.putExtra("CATEGORY_NAME", "LCD/OLED Displays");
+                startActivity(listIntent);
+            }
+        });
+
+        // 8. Movement / Distance
+        movementDistanceRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listIntent = new Intent(ArduinoTutorialPage.this, BasicProgrammings.class);
+                listIntent.putExtra("CATEGORY_NAME", "Movement/Distance");
+                startActivity(listIntent);
+            }
+        });
+
+        // 9. Temperature / Humidity
+        temperatureRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listIntent = new Intent(ArduinoTutorialPage.this, BasicProgrammings.class);
+                listIntent.putExtra("CATEGORY_NAME", "Temperature/Humidity");
+                startActivity(listIntent);
+            }
+        });
+
+        // 10. Light Sensor
+        lightSensorRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listIntent = new Intent(ArduinoTutorialPage.this, BasicProgrammings.class);
+                listIntent.putExtra("CATEGORY_NAME", "Light Sensor");
+                startActivity(listIntent);
+            }
+        });
+
+        // 11. Sound Modules
+        soundModulesRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listIntent = new Intent(ArduinoTutorialPage.this, BasicProgrammings.class);
+                listIntent.putExtra("CATEGORY_NAME", "Sound Modules");
+                startActivity(listIntent);
+            }
+        });
+
+        // 12. PIR Sensor
+        pirSensorRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listIntent = new Intent(ArduinoTutorialPage.this, BasicProgrammings.class);
+                listIntent.putExtra("CATEGORY_NAME", "PIR Sensor");
+                startActivity(listIntent);
+            }
+        });
     }
 }

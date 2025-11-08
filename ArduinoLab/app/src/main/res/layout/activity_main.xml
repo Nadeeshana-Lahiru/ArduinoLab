@@ -52,17 +52,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.183" />
 
-    <ImageView
-        android:id="@+id/startButtonImageID"
-        android:layout_width="158dp"
-        android:layout_height="158dp"
+    <Button
+        android:id="@+id/startButtonID"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
         android:alpha="0.8"
+        android:backgroundTint="#0B7181"
+        android:text="START"
+        android:textSize="17dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/stratbutton" />
+        app:layout_constraintVertical_bias="0.934"
+        app:strokeColor="#009688"
+        app:strokeWidth="1dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

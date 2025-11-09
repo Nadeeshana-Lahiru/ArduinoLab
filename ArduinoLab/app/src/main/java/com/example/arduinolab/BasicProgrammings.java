@@ -36,7 +36,7 @@ public class BasicProgrammings extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerViewID);
         backIcon = findViewById(R.id.backToListIconID);
         addIcon = findViewById(R.id.addIconID);
-        titleTextView = findViewById(R.id.textView2);
+        titleTextView = findViewById(R.id.titleTextID);
 
         Intent intent = getIntent();
         currentCategory = intent.getStringExtra("CATEGORY_NAME");
@@ -49,10 +49,11 @@ public class BasicProgrammings extends AppCompatActivity {
         }
 
         dbHelper = new DBHelper(this);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        loadData();
+        itemsList = dbHelper.getAllTutorialsByCategory(currentCategory);
+        adapter = new MyAdapter(this, itemsList);
+        recyclerView.setAdapter(adapter);
 
         backIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,14 +78,8 @@ public class BasicProgrammings extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         // This reloads data every time you come back to this page
-        loadData();
-    }
-
-    private void loadData() {
         itemsList = dbHelper.getAllTutorialsByCategory(currentCategory);
-
         adapter = new MyAdapter(this, itemsList);
-
         recyclerView.setAdapter(adapter);
     }
 }

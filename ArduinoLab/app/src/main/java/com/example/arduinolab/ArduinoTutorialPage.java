@@ -39,7 +39,7 @@ public class ArduinoTutorialPage extends AppCompatActivity {
         soundModulesRel = findViewById(R.id.soundModuleRelativeID);
         pirSensorRel = findViewById(R.id.pirSensorRelativeID);
 
-        // Example 1: Basic Programming
+        //  1: Basic Programming
         basicProgrammingRel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +49,7 @@ public class ArduinoTutorialPage extends AppCompatActivity {
             }
         });
 
-        // Example 2: Serial Port
+        //  2: Serial Port
         serialPortRel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +59,7 @@ public class ArduinoTutorialPage extends AppCompatActivity {
             }
         });
 
-        // Example 3: LEDs
+        //  3: LEDs
         ledSRel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +69,7 @@ public class ArduinoTutorialPage extends AppCompatActivity {
             }
         });
 
-// 4. Buttons
+        // 4. Buttons
         buttonsSRel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

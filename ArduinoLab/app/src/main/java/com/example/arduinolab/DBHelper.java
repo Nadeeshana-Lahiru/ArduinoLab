@@ -14,7 +14,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     // Database metadata
     private static final String DATABASE_NAME = "ArduinoLab.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     // Table
     public static final String TABLE_TUTORIALS = "tutorials";
@@ -26,7 +26,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_PIN_CONNECTION = "pinConnection";
     public static final String COLUMN_SAMPLE_CODE = "sampleCode";
 
-    // SQL statement to create the table
     private static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE_TUTORIALS + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -53,8 +52,6 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // --- C.R.U.D. Operations ---
-
     // CREATE (Insert)
     public void insertTutorial(TutorialItem item) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -67,7 +64,6 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMN_PIN_CONNECTION, item.getPinConnection());
         values.put(COLUMN_SAMPLE_CODE, item.getSampleCode());
 
-        // Insert the new row
         db.insert(TABLE_TUTORIALS, null, values);
         db.close();
     }
@@ -105,31 +101,29 @@ public class DBHelper extends SQLiteOpenHelper {
         ArrayList<TutorialItem> itemList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String selection = COLUMN_CATEGORY + "=?";
-        String[] selectionArgs = {category};
+        Cursor cursor = db.rawQuery(
+                "SELECT * FROM " + TABLE_TUTORIALS + " WHERE " + COLUMN_CATEGORY + " = ?",
+                new String[]{ category }
+        );
 
-        Cursor cursor = db.query(TABLE_TUTORIALS, null, selection, selectionArgs, null, null, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                TutorialItem item = new TutorialItem(
-                        cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CATEGORY)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPTION)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_IMAGE_NAME)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PIN_CONNECTION)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_SAMPLE_CODE))
-                );
-                itemList.add(item);
-            } while (cursor.moveToNext());
+        while (cursor.moveToNext()) {
+            TutorialItem item = new TutorialItem(
+                    cursor.getInt(0),      // 0 = id
+                    cursor.getString(1),   // 1 = category
+                    cursor.getString(2),   // 2 = title
+                    cursor.getString(3),   // 3 = description
+                    cursor.getString(4),   // 4 = imageName
+                    cursor.getString(5),   // 5 = pinConnection
+                    cursor.getString(6)    // 6 = sampleCode
+            );
+            itemList.add(item);
         }
         cursor.close();
         db.close();
         return itemList;
     }
 
-    // UPDATE (Not requested yet, but good to have)
+    // UPDATE
     public int updateTutorial(TutorialItem item) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -138,8 +132,8 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMN_TITLE, item.getTitle());
         values.put(COLUMN_DESCRIPTION, item.getDescription());
         values.put(COLUMN_IMAGE_NAME, item.getImageName());
-        values.put(COLUMN_PIN_CONNECTION, item.getImageName());
-        values.put(COLUMN_SAMPLE_CODE, item.getImageName());
+        values.put(COLUMN_PIN_CONNECTION, item.getPinConnection());
+        values.put(COLUMN_SAMPLE_CODE, item.getSampleCode());
 
         return db.update(TABLE_TUTORIALS, values, COLUMN_ID + " = ?",
                 new String[]{String.valueOf(item.getId())});

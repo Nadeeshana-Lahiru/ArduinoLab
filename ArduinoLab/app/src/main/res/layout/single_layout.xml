@@ -4,14 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
-    >
+    android:layout_marginStart="12dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp">
 
     <RelativeLayout
         android:id="@+id/single_relative_layout_ID"
         android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/list_item_selector"
         android:background="@drawable/bg_gradient_rounded"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -22,21 +29,24 @@
             android:id="@+id/headerTextID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:text="Install the Arduino to PC"
-            android:layout_marginLeft="10dp"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            />
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="50dp"
+            android:text="Install the Arduino to PC"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/rightArrowIcon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
             app:srcCompat="@drawable/rightarrowicon"
-            tools:layout_editor_absoluteX="73dp"
-            tools:layout_editor_absoluteY="242dp" />
+            app:tint="#555555" />
 
     </RelativeLayout>
 

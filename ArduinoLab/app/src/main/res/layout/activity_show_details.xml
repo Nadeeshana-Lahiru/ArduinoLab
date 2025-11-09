@@ -5,51 +5,45 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/show_details_page_background"
+    android:padding="10dp"
+    android:background="@android:color/white"
     tools:context=".ShowDetails">
 
     <ImageView
         android:id="@+id/backToListIconID"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/backicon" />
+        app:srcCompat="@drawable/backicon"
+        app:tint="#333333" />
 
     <TextView
         android:id="@+id/titleNameID"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="20dp"
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:maxLines="2"
         android:text="Install the Arduino to PC"
-        android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textColor="#830F97"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/backToListIconID"
-        app:layout_constraintEnd_toStartOf="@id/deleteIconID"
         app:layout_constraintStart_toEndOf="@id/backToListIconID"
-        app:layout_constraintTop_toTopOf="@id/backToListIconID" />
-
-    <ImageView
-        android:id="@+id/deleteIconID"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@id/backToListIconID"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/backToListIconID"
-        app:srcCompat="@drawable/deleteicon" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        android:clipToPadding="false"
+        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,15 +53,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:paddingStart="24dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="24dp">
 
             <TextView
                 android:id="@+id/moduleNameID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="8dp"
                 android:text="Description"
-                android:textColor="#FFEB3B"
+                android:textColor="#C57808"
                 android:textSize="17dp"
                 android:textStyle="bold" />
 
@@ -75,26 +71,34 @@
                 android:id="@+id/descriptionTextID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="24dp"
+                android:lineSpacingExtra="4dp"
                 android:text="The description text goes here..."
-                android:textColor="#C5C2C2"
-                android:textSize="15sp" />
+                android:textColor="#424242"
+                android:textSize="16sp" />
 
-            <ImageView
-                android:id="@+id/viewImageID"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginBottom="16dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/arduinointerface" />
+                android:layout_height="220dp"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <ImageView
+                    android:id="@+id/viewImageID"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/arduinointerface" />
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:id="@+id/pinConfigurationID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="8dp"
                 android:text="Pin Connection"
-                android:textColor="#FFEB3B"
+                android:textColor="#0C1E7E"
                 android:textSize="17dp"
                 android:textStyle="bold" />
 
@@ -102,18 +106,19 @@
                 android:id="@+id/pinConfigurationTextID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="24dp"
+                android:lineSpacingExtra="4dp"
                 android:text="Pin configuration text goes here..."
-                android:textColor="#C5C2C2"
-                android:textSize="15sp" />
+                android:textColor="#424242"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/codeID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="8dp"
                 android:text="Sample Program"
-                android:textColor="#FFEB3B"
+                android:textColor="#0767B4"
                 android:textSize="17dp"
                 android:textStyle="bold" />
 
@@ -121,12 +126,29 @@
                 android:id="@+id/codeTextID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="24dp"
+                android:background="#F4F4F4"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="4dp"
+                android:padding="16dp"
                 android:text="Sample code text goes here..."
-                android:textColor="#C5C2C2"
+                android:textColor="#424242"
                 android:textSize="15sp" />
 
         </LinearLayout>
+
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/editIconID"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/editicon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

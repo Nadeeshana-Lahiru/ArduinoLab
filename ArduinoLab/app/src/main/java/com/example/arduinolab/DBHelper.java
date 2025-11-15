@@ -14,7 +14,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     // Database metadata
     private static final String DATABASE_NAME = "ArduinoLab.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
 
     // Table
     public static final String TABLE_TUTORIALS = "tutorials";
@@ -44,6 +44,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_CREATE);
+        populateInitialData(db);
     }
 
     @Override
@@ -145,5 +146,48 @@ public class DBHelper extends SQLiteOpenHelper {
         db.delete(TABLE_TUTORIALS, COLUMN_ID + " = ?",
                 new String[]{String.valueOf(id)});
         db.close();
+    }
+
+    private void populateInitialData(SQLiteDatabase db) {
+        // Tutorial 1: Blink LED
+        ContentValues values1 = new ContentValues();
+        values1.put(COLUMN_CATEGORY, "LEDs");
+        values1.put(COLUMN_TITLE, "Blink an LED");
+        values1.put(COLUMN_DESCRIPTION, "The classic 'Hello, World!' of microcontrollers. This tutorial shows you how to make an LED turn on and off repeatedly.");
+        values1.put(COLUMN_IMAGE_NAME, "blink_led");
+        values1.put(COLUMN_PIN_CONNECTION, "LED Anode (long leg) -> Pin 13\nLED Cathode (short leg) -> GND");
+        values1.put(COLUMN_SAMPLE_CODE, "void setup() {\n  pinMode(13, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(13, HIGH);\n  delay(1000);\n  digitalWrite(13, LOW);\n  delay(1000);\n}");
+        db.insert(TABLE_TUTORIALS, null, values1);
+
+        //  Tutorial 2: Fading LED
+        ContentValues values2 = new ContentValues();
+        values2.put(COLUMN_CATEGORY, "LEDs");
+        values2.put(COLUMN_TITLE, "Fade an LED");
+        values2.put(COLUMN_DESCRIPTION, "Learn how to use Pulse Width Modulation (PWM) to make an LED gently fade in and out.");
+        values2.put(COLUMN_IMAGE_NAME, "fade_led");
+        values2.put(COLUMN_PIN_CONNECTION, "LED Anode (long leg) -> Pin 9 (PWM pin)\nLED Cathode (short leg) -> GND");
+        values2.put(COLUMN_SAMPLE_CODE, "int ledPin = 9;\nint brightness = 0;\nint fadeAmount = 5;\n\nvoid setup() {\n  pinMode(ledPin, OUTPUT);\n}\n\nvoid loop() {\n  analogWrite(ledPin, brightness);\n  brightness = brightness + fadeAmount;\n  if (brightness <= 0 || brightness >= 255) {\n    fadeAmount = -fadeAmount;\n  }\n  delay(30);\n}");
+        db.insert(TABLE_TUTORIALS, null, values2);
+
+        // Tutorial 3: Button Press
+        ContentValues values3 = new ContentValues();
+        values3.put(COLUMN_CATEGORY, "Buttons");
+        values3.put(COLUMN_TITLE, "Read a Button Press");
+        values3.put(COLUMN_DESCRIPTION, "Learn how to use a digital input to read the state of a push-button.");
+        values3.put(COLUMN_IMAGE_NAME, "read_button_press");
+        values3.put(COLUMN_PIN_CONNECTION, "Button Leg 1 -> Pin 2\nButton Leg 2 -> GND\n(We will use the internal PULLUP resistor)");
+        values3.put(COLUMN_SAMPLE_CODE, "const int buttonPin = 2;\nint buttonState = 0;\n\nvoid setup() {\n  Serial.begin(9600);\n  pinMode(buttonPin, INPUT_PULLUP);\n}\n\nvoid loop() {\n  buttonState = digitalRead(buttonPin);\n  if (buttonState == LOW) {\n    Serial.println(\"Button is pressed!\");\n  } else {\n    Serial.println(\"Button is not pressed.\");\n  }\n  delay(100);\n}");
+        db.insert(TABLE_TUTORIALS, null, values3);
+
+        //  Project 1: Example Project
+//        ContentValues values4 = new ContentValues();
+//        values4.put(COLUMN_CATEGORY, "PROJECTS");
+//        values4.put(COLUMN_TITLE, "My First Project");
+//        values4.put(COLUMN_DESCRIPTION, "This is an example project. You can edit or delete it.");
+//        values4.put(COLUMN_IMAGE_NAME, "ic_launcher_background");
+//        values4.put(COLUMN_PIN_CONNECTION, "No pin connections defined yet.");
+//        values4.put(COLUMN_SAMPLE_CODE, "// No code defined yet.");
+//        db.insert(TABLE_TUTORIALS, null, values4);
+
     }
 }

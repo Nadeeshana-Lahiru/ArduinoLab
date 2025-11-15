@@ -47,9 +47,7 @@ public class ShowDetails extends AppCompatActivity {
         if (currentItem != null) {
             currentItemID = currentItem.getId();
             titleText.setText(currentItem.getTitle());
-            descriptionText.setText(currentItem.getDescription());
-            pinConfigText.setText(currentItem.getPinConnection());
-            sampleCodeText.setText(currentItem.getSampleCode());
+            populateData();
 
         } else {
             Toast.makeText(this, "Error: Could not load tutorial.", Toast.LENGTH_SHORT).show();
@@ -81,20 +79,51 @@ public class ShowDetails extends AppCompatActivity {
 
         if (refreshedItem != null) {
             currentItem = refreshedItem;  // If item was UPDATED, set it as the new 'currentItem'
-            titleText.setText(currentItem.getTitle());
-            descriptionText.setText(currentItem.getDescription());
-            pinConfigText.setText(currentItem.getPinConnection());
-            sampleCodeText.setText(currentItem.getSampleCode());
-            String imagePath = currentItem.getImageName();
-            if (imagePath != null && !imagePath.isEmpty()) {
-                Uri imageUri = Uri.parse(imagePath);   // If we have a path, parse it to a URI and set it
+            populateData();
+        } else {
+            finish();  // item was DELETED, it will be 'null'. So we close this page and go back to the list.
+        }
+    }
+    private void populateData() {
+        titleText.setText(currentItem.getTitle());
+        descriptionText.setText(currentItem.getDescription());
+        pinConfigText.setText(currentItem.getPinConnection());
+        sampleCodeText.setText(currentItem.getSampleCode());
+
+        loadImage(currentItem.getImageName());
+    }
+
+    private void loadImage(String imagePath) {
+        if (imagePath != null && !imagePath.isEmpty()) {
+
+            if (imagePath.startsWith("content://")) {
+                // It's a gallery image (URI)
+                Uri imageUri = Uri.parse(imagePath);
                 tutorialImage.setImageURI(imageUri);
                 tutorialImage.setVisibility(View.VISIBLE);
             } else {
-                tutorialImage.setVisibility(View.GONE);   // No image was saved, so hide the ImageView
+                // It's a pre-defined drawable name
+                int imageResId = getDrawableResourceId(this, imagePath);
+                if (imageResId != 0) {
+                    tutorialImage.setImageResource(imageResId);
+                    tutorialImage.setVisibility(View.VISIBLE);
+                } else {
+                    tutorialImage.setImageDrawable(null);
+                    tutorialImage.setVisibility(View.GONE);
+                }
             }
         } else {
-            finish();  // item was DELETED, it will be 'null'. So we close this page and go back to the list.
+            tutorialImage.setImageDrawable(null);
+            tutorialImage.setVisibility(View.GONE);
+        }
+    }
+
+    public static int getDrawableResourceId(Context context, String resourceName) {
+        try {
+            return context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0; // Return 0 if not found
         }
     }
 }

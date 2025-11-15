@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/backicon"
-        app:tint="@color/black" />
+        />
 
     <TextView
         android:id="@+id/headerTitleID"
@@ -49,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/backToListIconID"
         app:srcCompat="@drawable/optionsicon"
-        app:tint="#333333" />
+        />
 
     <ScrollView
         android:layout_width="0dp"

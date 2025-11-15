@@ -26,7 +26,7 @@
             android:layout_marginStart="10dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/backicon"
-            app:tint="#333333" />
+            />
 
         <TextView
             android:id="@+id/titleTextID"
@@ -46,8 +46,8 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/addicon3d"
-            app:tint="#333333" />
+            app:srcCompat="@drawable/addicon"
+            />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView

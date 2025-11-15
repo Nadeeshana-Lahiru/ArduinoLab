@@ -3,10 +3,12 @@ package com.example.arduinolab;
 import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -106,26 +108,41 @@ public class UpdateTutorial extends AppCompatActivity {
         deleteIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                PopupMenu popup = new PopupMenu(UpdateTutorial.this, v);   // Create a PopupMenu, anchoring it to the icon (v)
+                popup.getMenuInflater().inflate(R.menu.update_menu, popup.getMenu());  // Inflate (load) your menu.xml file
+                // Set a listener for when a menu item is clicked
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        if (item.getItemId() == R.id.menu_delete) {
 
-                new AlertDialog.Builder(UpdateTutorial.this)
-                        .setTitle("Delete Tutorial")
-                        .setMessage("Are you sure you want to delete this tutorial? This cannot be undone.")
-                        .setIcon(R.drawable.deleteicon)
+                            new AlertDialog.Builder(UpdateTutorial.this)
+                                    .setTitle("Delete Tutorial")
+                                    .setMessage("Are you sure you want to delete this tutorial? This cannot be undone.")
+                                    .setIcon(R.drawable.deleteicon)
 
-                        .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                // If "Delete" is clicked, run the delete code
-                                if (currentItem != null) {
-                                    dbHelper.deleteTutorial(currentItem.getId());
-                                    Toast.makeText(UpdateTutorial.this, "Tutorial deleted", Toast.LENGTH_SHORT).show();
-                                    finish();
-                                }
-                            }
-                        })
+                                    .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            // If "Delete" is clicked, run the delete code
+                                            if (currentItem != null) {
+                                                dbHelper.deleteTutorial(currentItem.getId());
+                                                Toast.makeText(UpdateTutorial.this, "Tutorial deleted", Toast.LENGTH_SHORT).show();
+                                                finish();
+                                            }
+                                        }
+                                    })
 
-                        .setNegativeButton("Cancel", null) // Does nothing
-                        .show(); // Show the dialog
+                                    .setNegativeButton("Cancel", null) // Does nothing
+                                    .show(); // Show the dialog
+
+                            return true;
+                        }
+                        return false;
+                    }
+                });
+
+                popup.show();   // Show the menu
             }
         });
     }

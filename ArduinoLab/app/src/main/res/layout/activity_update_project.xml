@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".UpdateTutorial">
+    android:background="@android:color/white"
+    tools:context=".UpdateProjectActivity">
 
     <ImageView
         android:id="@+id/backToListIconID"
@@ -28,7 +29,7 @@
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:maxLines="2"
-        android:text="Update Tutorial"
+        android:text="Update Project"
         android:textColor="#830F97"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -74,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginBottom="8dp"
-                android:text="Title"
+                android:text="Project Title"
                 android:textColor="#C57808"
                 android:textSize="17dp"
                 android:textStyle="bold" />
@@ -94,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginBottom="8dp"
-                android:text="Description"
+                android:text="Project Description"
                 android:textColor="#C57808"
                 android:textSize="17dp"
                 android:textStyle="bold" />
@@ -106,7 +107,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/edit_text_background"
                 android:gravity="top"
-                android:minLines="3"
+                android.minLines="5"
                 android:padding="16dp"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -147,7 +148,6 @@
                 android:textColor="#0C1E7E"
                 android:textSize="17dp"
                 android:textStyle="bold" />
-
             <EditText
                 android:id="@+id/updatePinConfigEditID"
                 android:layout_width="match_parent"
@@ -169,7 +169,6 @@
                 android:textColor="#0767B4"
                 android:textSize="17dp"
                 android:textStyle="bold" />
-
             <EditText
                 android:id="@+id/updateSampleCodeEditID"
                 android:layout_width="match_parent"
@@ -184,7 +183,6 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
-
     </ScrollView>
 
     <Button

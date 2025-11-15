@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
@@ -15,6 +16,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ArduinoLab">
+        <activity
+            android:name=".UpdateProjectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ShowProjectDetails"
+            android:exported="false" />
+        <activity
+            android:name=".AddProjectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProjectsPage"
+            android:exported="false" />
         <activity
             android:name=".UpdateTutorial"
             android:exported="false" />

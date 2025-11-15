@@ -219,7 +219,6 @@
                 app:cornerRadius="16dp" />
 
         </LinearLayout>
-
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

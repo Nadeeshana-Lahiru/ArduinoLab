@@ -158,5 +158,13 @@ public class ArduinoTutorialPage extends AppCompatActivity {
                 startActivity(listIntent);
             }
         });
+
+        projectsIconRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listIntent = new Intent(ArduinoTutorialPage.this, ProjectsPage.class);
+                startActivity(listIntent);
+            }
+        });
     }
 }

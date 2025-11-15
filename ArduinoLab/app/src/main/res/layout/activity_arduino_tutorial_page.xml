@@ -99,7 +99,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/basic_programming"
+                            android:src="@drawable/basic_programming_tutorial_image"
                             android:scaleType="centerCrop" />
 
                     </com.google.android.material.card.MaterialCardView>
@@ -139,7 +139,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/serial_port"
+                            android:src="@drawable/serial_port_tutorial_image"
                             android:scaleType="centerCrop" />
 
                     </com.google.android.material.card.MaterialCardView>
@@ -186,7 +186,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/blink_led"
+                            android:src="@drawable/leds_tutorial_image"
                             android:scaleType="centerCrop" />
 
                     </com.google.android.material.card.MaterialCardView>
@@ -226,7 +226,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/buttons"
+                            android:src="@drawable/buttons_tutorial_image"
                             android:scaleType="centerCrop" />
 
                     </com.google.android.material.card.MaterialCardView>
@@ -236,7 +236,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/iconButtons"
                         android:layout_centerHorizontal="true"
-                        android:text="Buttons / Digital inputs"
+                        android:text="Buttons"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:gravity="center"
@@ -274,7 +274,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/servo"
+                            android:src="@drawable/servo_tutorial_image"
                             android:scaleType="centerCrop" />
 
                     </com.google.android.material.card.MaterialCardView>
@@ -314,7 +314,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/seven_segment_display"
+                            android:src="@drawable/seven_segment_tutorial_image"
                             android:scaleType="centerCrop" />
 
                     </com.google.android.material.card.MaterialCardView>
@@ -362,7 +362,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/lcd_display"
+                            android:src="@drawable/lcd_display_tutorial_image"
                             android:scaleType="centerCrop" />
 
                     </com.google.android.material.card.MaterialCardView>
@@ -402,7 +402,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/ultrasonic"
+                            android:src="@drawable/ultrasonic_sensor_tutorial_image"
                             android:scaleType="centerCrop" />
 
                     </com.google.android.material.card.MaterialCardView>
@@ -450,7 +450,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/temperature_sensor"
+                            android:src="@drawable/temperature_sensor_tutorial_image"
                             android:scaleType="centerCrop" />
 
                     </com.google.android.material.card.MaterialCardView>
@@ -490,7 +490,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/ldr_sensor"
+                            android:src="@drawable/light_sensor_tutorial_image"
                             android:scaleType="centerCrop" />
 
                     </com.google.android.material.card.MaterialCardView>
@@ -538,7 +538,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/buzzer"
+                            android:src="@drawable/sound_module_tutorial_image"
                             android:scaleType="centerCrop" />
 
                     </com.google.android.material.card.MaterialCardView>
@@ -578,7 +578,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/pir_sensor"
+                            android:src="@drawable/ir_sensor_tutorial_image"
                             android:scaleType="centerCrop" />
 
                     </com.google.android.material.card.MaterialCardView>
@@ -589,6 +589,230 @@
                         android:layout_below="@id/iconPIRSenosor"
                         android:layout_centerHorizontal="true"
                         android:text="PIR Sensor"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:id="@+id/joystickRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:foreground="@drawable/list_item_selector"
+                    android:background="@drawable/category_button_3d_background"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/iconJoystick"
+                        android:layout_width="110dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="8dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/joystick_tutorial_image"
+                            android:scaleType="centerCrop" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconJoystick"
+                        android:layout_centerHorizontal="true"
+                        android:text="Joystick"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rainDropSensorRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:foreground="@drawable/list_item_selector"
+                    android:background="@drawable/category_button_3d_background"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/iconRainDropSensor"
+                        android:layout_width="110dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="8dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/rain_drop_sensor_tutorial_image"
+                            android:scaleType="centerCrop" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconRainDropSensor"
+                        android:layout_centerHorizontal="true"
+                        android:text="Rain Drop Sensor"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:id="@+id/relayoduleRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:foreground="@drawable/list_item_selector"
+                    android:background="@drawable/category_button_3d_background"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/iconRelayModule"
+                        android:layout_width="110dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="8dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/relay_module_tutorial_image"
+                            android:scaleType="centerCrop" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconRelayModule"
+                        android:layout_centerHorizontal="true"
+                        android:text="Relay Module"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/keypadRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:foreground="@drawable/list_item_selector"
+                    android:background="@drawable/category_button_3d_background"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/iconKeypad"
+                        android:layout_width="110dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="8dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/keypad_tutorial_image"
+                            android:scaleType="centerCrop" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconKeypad"
+                        android:layout_centerHorizontal="true"
+                        android:text="Keypad"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:singleLine="false"
+                        android:maxLines="2"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:id="@+id/i2cCommunicationRelativeID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:foreground="@drawable/list_item_selector"
+                    android:background="@drawable/category_button_3d_background"
+                    android:padding="12dp"
+                    android:gravity="center_horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/iconI2C"
+                        android:layout_width="110dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="8dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/i2c_communication_tutorial_image"
+                            android:scaleType="centerCrop" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iconI2C"
+                        android:layout_centerHorizontal="true"
+                        android:text="I2C Communication"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:gravity="center"

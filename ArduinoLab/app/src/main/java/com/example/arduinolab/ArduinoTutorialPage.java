@@ -16,7 +16,7 @@ public class ArduinoTutorialPage extends AppCompatActivity {
 
     RelativeLayout basicProgrammingRel , serialPortRel , ledSRel , buttonsSRel , servoRel ,
             ledDisplaysRel , lcdDisplaysRel , movementDistanceRel , temperatureRel , lightSensorRel ,
-            soundModulesRel , pirSensorRel ;
+            soundModulesRel , pirSensorRel , joystickRel , rainDropRel , relayModuleRel , keypadRel , i2cCommunicationRel ;
 
     ImageView projectsIconRel;
 
@@ -38,6 +38,11 @@ public class ArduinoTutorialPage extends AppCompatActivity {
         lightSensorRel = findViewById(R.id.lightSensorRelativeID);
         soundModulesRel = findViewById(R.id.soundModuleRelativeID);
         pirSensorRel = findViewById(R.id.pirSensorRelativeID);
+        joystickRel = findViewById(R.id.joystickRelativeID);
+        rainDropRel = findViewById(R.id.rainDropSensorRelativeID);
+        relayModuleRel = findViewById(R.id.relayoduleRelativeID);
+        keypadRel = findViewById(R.id.keypadRelativeID);
+        i2cCommunicationRel = findViewById(R.id.i2cCommunicationRelativeID);
 
         //  1: Basic Programming
         basicProgrammingRel.setOnClickListener(new View.OnClickListener() {
@@ -149,12 +154,62 @@ public class ArduinoTutorialPage extends AppCompatActivity {
             }
         });
 
-        // 12. PIR Sensor
+        // 12. IR/PIR Sensor
         pirSensorRel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent listIntent = new Intent(ArduinoTutorialPage.this, BasicProgrammings.class);
-                listIntent.putExtra("CATEGORY_NAME", "PIR Sensor");
+                listIntent.putExtra("CATEGORY_NAME", "IR/PIR Sensor");
+                startActivity(listIntent);
+            }
+        });
+
+        // 13. IR/PIR Sensor
+        joystickRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listIntent = new Intent(ArduinoTutorialPage.this, BasicProgrammings.class);
+                listIntent.putExtra("CATEGORY_NAME", "Joystick");
+                startActivity(listIntent);
+            }
+        });
+
+        // 14. Rain Drop Sensor
+        rainDropRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listIntent = new Intent(ArduinoTutorialPage.this, BasicProgrammings.class);
+                listIntent.putExtra("CATEGORY_NAME", "Rain Drop Sensor");
+                startActivity(listIntent);
+            }
+        });
+
+        // 15. Relay Module
+        relayModuleRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listIntent = new Intent(ArduinoTutorialPage.this, BasicProgrammings.class);
+                listIntent.putExtra("CATEGORY_NAME", "Relay Module");
+                startActivity(listIntent);
+            }
+        });
+
+        // 16. Relay Module
+        keypadRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listIntent = new Intent(ArduinoTutorialPage.this, BasicProgrammings.class);
+                listIntent.putExtra("CATEGORY_NAME", "Keypad");
+                startActivity(listIntent);
+            }
+        });
+
+        // 17. I2C Connection
+        i2cCommunicationRel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listIntent = new Intent(ArduinoTutorialPage.this, BasicProgrammings.class);
+                listIntent.putExtra("CATEGORY_NAME", "I2C Connection");
                 startActivity(listIntent);
             }
         });

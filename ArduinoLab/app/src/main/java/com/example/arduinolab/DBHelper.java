@@ -14,7 +14,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     // Database metadata
     private static final String DATABASE_NAME = "ArduinoLab.db";
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 7;
 
     // Table
     public static final String TABLE_TUTORIALS = "tutorials";
@@ -184,7 +184,7 @@ public class DBHelper extends SQLiteOpenHelper {
                         + " - Installing libraries via Library Manager\n"
                         + " - Compiling and uploading sketches\n"
                         + " - Using the Serial Monitor and Serial Plotter for debugging.");
-        values2.put(COLUMN_IMAGE_NAME, "arduino_ide_setup");
+        values2.put(COLUMN_IMAGE_NAME, "using_the_arduino_ide");
         values2.put(COLUMN_PIN_CONNECTION,
                 "No hardware required — IDE configuration tutorial.\n"
                         + "Notes:\n"
@@ -1033,89 +1033,15 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "}");
         db.insert(TABLE_TUTORIALS, null, values27);
 
-        // Tutorial 28: 7-Segment Display: Single Digit
-        ContentValues values28 = new ContentValues();
-        values28.put(COLUMN_CATEGORY, "LED Displays");
-        values28.put(COLUMN_TITLE, "7-Segment Display: Single Digit");
-        values28.put(COLUMN_DESCRIPTION,
-                "Drive a common-cathode 7-segment display to show digits 0-9. Shows segment wiring, multiplex basics for single digit, and mapping digits to segments.");
-        values28.put(COLUMN_IMAGE_NAME, "7segment_single_digit");
-        values28.put(COLUMN_PIN_CONNECTION,
-                "Segments: a->Pin2, b->Pin3, c->Pin4, d->Pin5, e->Pin6, f->Pin7, g->Pin8\n"
-                        + "Common Cathode -> GND\n"
-                        + "Use current-limiting resistors (220Ω) for each segment.");
-        values28.put(COLUMN_SAMPLE_CODE,
-                "const int segPins[7] = {2,3,4,5,6,7,8};\n"
-                        + "const byte digits[10][7] = {\n"
-                        + "  {1,1,1,1,1,1,0},\n"
-                        + "  {0,1,1,0,0,0,0},\n"
-                        + "  {1,1,0,1,1,0,1},\n"
-                        + "  {1,1,1,1,0,0,1},\n"
-                        + "  {0,1,1,0,0,1,1},\n"
-                        + "  {1,0,1,1,0,1,1},\n"
-                        + "  {1,0,1,1,1,1,1},\n"
-                        + "  {1,1,1,0,0,0,0},\n"
-                        + "  {1,1,1,1,1,1,1},\n"
-                        + "  {1,1,1,1,0,1,1}\n"
-                        + "};\n\n"
-                        + "void setup() {\n"
-                        + "  for (int i = 0; i < 7; i++) pinMode(segPins[i], OUTPUT);\n"
-                        + "}\n\n"
-                        + "void loop() {\n"
-                        + "  for (int d = 0; d <= 9; d++) {\n"
-                        + "    for (int s = 0; s < 7; s++) {\n"
-                        + "      digitalWrite(segPins[s], digits[d][s]);\n"
-                        + "    }\n"
-                        + "    delay(500);\n"
-                        + "  }\n"
-                        + "}");
-        db.insert(TABLE_TUTORIALS, null, values28);
-
-        // Tutorial 29: Servo Motor Sweep with Serial Print
-        ContentValues value29 = new ContentValues();
-        value29.put(COLUMN_CATEGORY, "Servo");
-        value29.put(COLUMN_TITLE, "Servo Motor Sweep with Serial Print");
-        value29.put(COLUMN_DESCRIPTION,
-                "Demonstrates a sweeping servo movement while printing the current angle to the Serial Monitor. "
-                        + "Useful for debugging servo behavior, observing timing, and verifying movement patterns without interactive input.");
-        value29.put(COLUMN_IMAGE_NAME, "servo_sweep_serial");
-        value29.put(COLUMN_PIN_CONNECTION,
-                "Servo Signal  -> Digital Pin 9\n"
-                        + "Servo VCC     -> 5V (external recommended if high load)\n"
-                        + "Servo GND     -> GND\n"
-                        + "Serial Monitor: 9600 baud\n"
-                        + "Note:\n"
-                        + " - Ensure grounds (Arduino + external supply) are connected together.");
-        value29.put(COLUMN_SAMPLE_CODE,
-                "#include <Servo.h>\n\n"
-                        + "Servo myservo;\n\n"
-                        + "void setup() {\n"
-                        + "  Serial.begin(9600);\n"
-                        + "  myservo.attach(9);\n"
-                        + "}\n\n"
-                        + "void loop() {\n"
-                        + "  for (int pos = 0; pos <= 180; pos++) {\n"
-                        + "    myservo.write(pos);\n"
-                        + "    Serial.println(pos);\n"
-                        + "    delay(15);\n"
-                        + "  }\n"
-                        + "  for (int pos = 180; pos >= 0; pos--) {\n"
-                        + "    myservo.write(pos);\n"
-                        + "    Serial.println(pos);\n"
-                        + "    delay(15);\n"
-                        + "  }\n"
-                        + "}");
-        db.insert(TABLE_TUTORIALS, null, value29);
-
-        // Tutorial 30: Single Digit 7-Segment Display
-        ContentValues value30 = new ContentValues();
-        value30.put(COLUMN_CATEGORY, "LED Displays");
-        value30.put(COLUMN_TITLE, "Single Digit 7-Segment Display");
-        value30.put(COLUMN_DESCRIPTION,
+        // Tutorial 28: Single Digit 7-Segment Display
+        ContentValues value28 = new ContentValues();
+        value28.put(COLUMN_CATEGORY, "LED Displays");
+        value28.put(COLUMN_TITLE, "Single Digit 7-Segment Display");
+        value28.put(COLUMN_DESCRIPTION,
                 "Controls a common-cathode single-digit 7-segment display. "
                         + "Shows digit mapping, segment wiring, and displaying numbers 0–9 using an array-based pattern.");
-        value30.put(COLUMN_IMAGE_NAME, "7seg_display");
-        value30.put(COLUMN_PIN_CONNECTION,
+        value28.put(COLUMN_IMAGE_NAME, "7seg_display");
+        value28.put(COLUMN_PIN_CONNECTION,
                 "Common Cathode -> GND\n"
                         + "Segments:\n"
                         + " a -> Pin 2\n"
@@ -1126,7 +1052,7 @@ public class DBHelper extends SQLiteOpenHelper {
                         + " f -> Pin 7\n"
                         + " g -> Pin 8\n"
                         + "All segments must use 220Ω resistors.");
-        value30.put(COLUMN_SAMPLE_CODE,
+        value28.put(COLUMN_SAMPLE_CODE,
                 "int segPins[7] = {2,3,4,5,6,7,8};\n"
                         + "byte digits[10][7] = {\n"
                         + "  {1,1,1,1,1,1,0},\n"
@@ -1151,24 +1077,24 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "    delay(600);\n"
                         + "  }\n"
                         + "}");
-        db.insert(TABLE_TUTORIALS, null, value30);
+        db.insert(TABLE_TUTORIALS, null, value28);
 
-        // Tutorial 31: 16x2 LCD Display (I2C)
-        ContentValues value31 = new ContentValues();
-        value31.put(COLUMN_CATEGORY, "LCD/OLED Displays");
-        value31.put(COLUMN_TITLE, "16x2 LCD Display (I2C)");
-        value31.put(COLUMN_DESCRIPTION,
+        // Tutorial 29: 16x2 LCD Display (I2C)
+        ContentValues value29 = new ContentValues();
+        value29.put(COLUMN_CATEGORY, "LCD/OLED Displays");
+        value29.put(COLUMN_TITLE, "16x2 LCD Display (I2C)");
+        value29.put(COLUMN_DESCRIPTION,
                 "Displays text on a 16x2 liquid crystal display using an I2C backpack. "
                         + "Reduces wiring using the I2C protocol and allows easy text updates and cursor control.");
-        value31.put(COLUMN_IMAGE_NAME, "lcd_16x2_i2c");
-        value31.put(COLUMN_PIN_CONNECTION,
+        value29.put(COLUMN_IMAGE_NAME, "lcd_i_two_c");
+        value29.put(COLUMN_PIN_CONNECTION,
                 "LCD Module (I2C Backpack):\n"
                         + " VCC -> 5V\n"
                         + " GND -> GND\n"
                         + " SDA -> A4 (Arduino Uno)\n"
                         + " SCL -> A5 (Arduino Uno)\n"
                         + "Default I2C Address: 0x27 or 0x3F (varies by module)");
-        value31.put(COLUMN_SAMPLE_CODE,
+        value29.put(COLUMN_SAMPLE_CODE,
                 "#include <Wire.h>\n"
                         + "#include <LiquidCrystal_I2C.h>\n\n"
                         + "LiquidCrystal_I2C lcd(0x27, 16, 2);\n\n"
@@ -1182,25 +1108,25 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "}\n\n"
                         + "void loop() {\n"
                         + "}");
-        db.insert(TABLE_TUTORIALS, null, value31);
+        db.insert(TABLE_TUTORIALS, null, value29);
 
-        // Tutorial 32: OLED Display 128x64 (I2C)
-        ContentValues value32 = new ContentValues();
-        value32.put(COLUMN_CATEGORY, "LCD/OLED Displays");
-        value32.put(COLUMN_TITLE, "OLED Display 128x64 (I2C)");
-        value32.put(COLUMN_DESCRIPTION,
+        // Tutorial 30: OLED Display 128x64 (I2C)
+        ContentValues value30 = new ContentValues();
+        value30.put(COLUMN_CATEGORY, "LCD/OLED Displays");
+        value30.put(COLUMN_TITLE, "OLED Display 128x64 (I2C)");
+        value30.put(COLUMN_DESCRIPTION,
                 "Uses an SSD1306-based OLED display to render text and graphics. "
                         + "Ideal for dashboards, sensor readouts, and UI elements. "
                         + "Supports high-contrast white-on-black rendering.");
-        value32.put(COLUMN_IMAGE_NAME, "oled_display");
-        value32.put(COLUMN_PIN_CONNECTION,
+        value30.put(COLUMN_IMAGE_NAME, "oled_display");
+        value30.put(COLUMN_PIN_CONNECTION,
                 "OLED SSD1306:\n"
                         + " VCC -> 3.3V or 5V\n"
                         + " GND -> GND\n"
                         + " SDA -> A4\n"
                         + " SCL -> A5\n"
                         + "Typical Address: 0x3C");
-        value32.put(COLUMN_SAMPLE_CODE,
+        value30.put(COLUMN_SAMPLE_CODE,
                 "#include <Wire.h>\n"
                         + "#include <Adafruit_GFX.h>\n"
                         + "#include <Adafruit_SSD1306.h>\n\n"
@@ -1216,24 +1142,24 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "}\n\n"
                         + "void loop() {\n"
                         + "}");
-        db.insert(TABLE_TUTORIALS, null, value32);
+        db.insert(TABLE_TUTORIALS, null, value30);
 
-        // Tutorial 33: Ultrasonic Sensor (HC-SR04) Distance Measurement
-        ContentValues value33 = new ContentValues();
-        value33.put(COLUMN_CATEGORY, "Movement/Distance");
-        value33.put(COLUMN_TITLE, "Ultrasonic Sensor (HC-SR04) Distance Measurement");
-        value33.put(COLUMN_DESCRIPTION,
+        // Tutorial 31: Ultrasonic Sensor (HC-SR04) Distance Measurement
+        ContentValues value31 = new ContentValues();
+        value31.put(COLUMN_CATEGORY, "Movement/Distance");
+        value31.put(COLUMN_TITLE, "Ultrasonic Sensor (HC-SR04) Distance Measurement");
+        value31.put(COLUMN_DESCRIPTION,
                 "Measures distance using an HC-SR04 ultrasonic module by sending a trigger pulse and reading the echo return time. "
                         + "Useful for obstacle detection, robotics, automation, and distance monitoring applications.");
-        value33.put(COLUMN_IMAGE_NAME, "ultrasonic_sensor");
-        value33.put(COLUMN_PIN_CONNECTION,
+        value31.put(COLUMN_IMAGE_NAME, "ultrasonic_sensor");
+        value31.put(COLUMN_PIN_CONNECTION,
                 "Ultrasonic HC-SR04:\n"
                         + " VCC   -> 5V\n"
                         + " GND   -> GND\n"
                         + " TRIG  -> Pin 9\n"
                         + " ECHO  -> Pin 10\n"
                         + "Echo should be connected through a voltage divider when using 3.3V boards (not needed for 5V Arduino Uno).");
-        value33.put(COLUMN_SAMPLE_CODE,
+        value31.put(COLUMN_SAMPLE_CODE,
                 "long duration;\n"
                         + "int distance;\n\n"
                         + "void setup() {\n"
@@ -1252,23 +1178,23 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "  Serial.println(distance);\n"
                         + "  delay(200);\n"
                         + "}");
-        db.insert(TABLE_TUTORIALS, null, value33);
+        db.insert(TABLE_TUTORIALS, null, value31);
 
-        // Tutorial 34: LM35 Temperature Sensor Reading
-        ContentValues value34 = new ContentValues();
-        value34.put(COLUMN_CATEGORY, "Temperature/Humidity");
-        value34.put(COLUMN_TITLE, "LM35 Temperature Sensor Reading");
-        value34.put(COLUMN_DESCRIPTION,
+        // Tutorial 32: LM35 Temperature Sensor Reading
+        ContentValues value32 = new ContentValues();
+        value32.put(COLUMN_CATEGORY, "Temperature/Humidity");
+        value32.put(COLUMN_TITLE, "LM35 Temperature Sensor Reading");
+        value32.put(COLUMN_DESCRIPTION,
                 "Reads analog temperature values from the LM35 sensor. "
                         + "Outputs temperature in Celsius by converting millivolts to degrees. "
                         + "Accuracy is typically ±0.5°C at room temperature.");
-        value34.put(COLUMN_IMAGE_NAME, "lm35_sensor");
-        value34.put(COLUMN_PIN_CONNECTION,
+        value32.put(COLUMN_IMAGE_NAME, "lm_sensor");
+        value32.put(COLUMN_PIN_CONNECTION,
                 "LM35:\n"
                         + " Pin 1 (VCC)  -> 5V\n"
                         + " Pin 2 (OUT)  -> A0\n"
                         + " Pin 3 (GND)  -> GND");
-        value34.put(COLUMN_SAMPLE_CODE,
+        value32.put(COLUMN_SAMPLE_CODE,
                 "int sensorPin = A0;\n"
                         + "float tempC;\n\n"
                         + "void setup() {\n"
@@ -1280,23 +1206,23 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "  Serial.println(tempC);\n"
                         + "  delay(500);\n"
                         + "}");
-        db.insert(TABLE_TUTORIALS, null, value34);
+        db.insert(TABLE_TUTORIALS, null, value32);
 
-        // Tutorial 35: DHT11 Temperature & Humidity Sensor
-        ContentValues value35 = new ContentValues();
-        value35.put(COLUMN_CATEGORY, "Temperature/Humidity");
-        value35.put(COLUMN_TITLE, "DHT11 Temperature & Humidity Sensor");
-        value35.put(COLUMN_DESCRIPTION,
+        // Tutorial 33: DHT11 Temperature & Humidity Sensor
+        ContentValues value33 = new ContentValues();
+        value33.put(COLUMN_CATEGORY, "Temperature/Humidity");
+        value33.put(COLUMN_TITLE, "DHT11 Temperature & Humidity Sensor");
+        value33.put(COLUMN_DESCRIPTION,
                 "Reads temperature and humidity from the DHT11 sensor. "
                         + "The DHT11 is a low-cost digital sensor suitable for basic environmental monitoring.");
-        value35.put(COLUMN_IMAGE_NAME, "dht11_sensor");
-        value35.put(COLUMN_PIN_CONNECTION,
+        value33.put(COLUMN_IMAGE_NAME, "dht_eleven_sensor");
+        value33.put(COLUMN_PIN_CONNECTION,
                 "DHT11 Connections:\n"
                         + " VCC  -> 5V\n"
                         + " GND  -> GND\n"
                         + " DATA -> Pin 2\n"
                         + "Use a 10k pull-up resistor between DATA and VCC.");
-        value35.put(COLUMN_SAMPLE_CODE,
+        value33.put(COLUMN_SAMPLE_CODE,
                 "#include <DHT.h>\n\n"
                         + "#define DHTPIN 2\n"
                         + "#define DHTTYPE DHT11\n\n"
@@ -1314,23 +1240,23 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "  Serial.println(h);\n\n"
                         + "  delay(1000);\n"
                         + "}");
-        db.insert(TABLE_TUTORIALS, null, value35);
+        db.insert(TABLE_TUTORIALS, null, value33);
 
-        // Tutorial 36: DHT22 High Precision Temperature & Humidity Sensor
-        ContentValues value36 = new ContentValues();
-        value36.put(COLUMN_CATEGORY, "Temperature/Humidity");
-        value36.put(COLUMN_TITLE, "DHT22 High Precision Temperature & Humidity Sensor");
-        value36.put(COLUMN_DESCRIPTION,
+        // Tutorial 34: DHT22 High Precision Temperature & Humidity Sensor
+        ContentValues value34 = new ContentValues();
+        value34.put(COLUMN_CATEGORY, "Temperature/Humidity");
+        value34.put(COLUMN_TITLE, "DHT22 High Precision Temperature & Humidity Sensor");
+        value34.put(COLUMN_DESCRIPTION,
                 "Uses the DHT22 high-accuracy sensor to measure temperature and humidity. "
                         + "It offers better resolution and stability compared to the DHT11.");
-        value36.put(COLUMN_IMAGE_NAME, "dht22_sensor");
-        value36.put(COLUMN_PIN_CONNECTION,
+        value34.put(COLUMN_IMAGE_NAME, "dht_twenty_two_sensor");
+        value34.put(COLUMN_PIN_CONNECTION,
                 "DHT22 Connections:\n"
                         + " VCC  -> 5V\n"
                         + " GND  -> GND\n"
                         + " DATA -> Pin 3\n"
                         + "Use a 10k pull-up resistor between DATA and VCC.");
-        value36.put(COLUMN_SAMPLE_CODE,
+        value34.put(COLUMN_SAMPLE_CODE,
                 "#include <DHT.h>\n\n"
                         + "#define DHTPIN 3\n"
                         + "#define DHTTYPE DHT22\n\n"
@@ -1348,20 +1274,20 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "  Serial.println(h);\n\n"
                         + "  delay(1500);\n"
                         + "}");
-        db.insert(TABLE_TUTORIALS, null, value36);
+        db.insert(TABLE_TUTORIALS, null, value34);
 
-        // Tutorial 37: DR Sensor (Analog Light Detection)
-        ContentValues value37 = new ContentValues();
-        value37.put(COLUMN_CATEGORY, "Light Sensor");
-        value37.put(COLUMN_TITLE, "LDR Sensor (Analog Light Detection)");
-        value37.put(COLUMN_DESCRIPTION, "This tutorial demonstrates how to measure light intensity using an LDR (Light Dependent Resistor) and an analog input pin on the Arduino. As light levels change, the LDR's resistance varies, producing different voltage levels that the Arduino reads. This method is widely used in automatic street lights, display brightness control, and smart home systems.");
-        value37.put(COLUMN_IMAGE_NAME, "ldr_sensor_analog");
-        value37.put(COLUMN_PIN_CONNECTION,
+        // Tutorial 35: DR Sensor (Analog Light Detection)
+        ContentValues value35 = new ContentValues();
+        value35.put(COLUMN_CATEGORY, "Light Sensor");
+        value35.put(COLUMN_TITLE, "LDR Sensor (Analog Light Detection)");
+        value35.put(COLUMN_DESCRIPTION, "This tutorial demonstrates how to measure light intensity using an LDR (Light Dependent Resistor) and an analog input pin on the Arduino. As light levels change, the LDR's resistance varies, producing different voltage levels that the Arduino reads. This method is widely used in automatic street lights, display brightness control, and smart home systems.");
+        value35.put(COLUMN_IMAGE_NAME, "ldr_sensor_analog");
+        value35.put(COLUMN_PIN_CONNECTION,
                 "• LDR → One side to 5V\n" +
                         "• LDR → Other side connected to A0 and 10kΩ resistor\n" +
                         "• 10kΩ resistor → Connected from A0 to GND\n" +
                         "• Arduino analog pin A0 → Reads voltage divider output");
-        value37.put(COLUMN_SAMPLE_CODE,
+        value35.put(COLUMN_SAMPLE_CODE,
                 "int ldr = A0;\n" +
                         "\n" +
                         "void setup(){\n" +
@@ -1373,21 +1299,21 @@ public class DBHelper extends SQLiteOpenHelper {
                         "  Serial.println(value);\n" +
                         "  delay(500);\n" +
                         "}");
-        db.insert(TABLE_TUTORIALS, null, value37);
+        db.insert(TABLE_TUTORIALS, null, value35);
 
-        // Tutorial 38: Photoresistor Digital Light ON/OFF Detection
-        ContentValues value38 = new ContentValues();
-        value38.put(COLUMN_CATEGORY, "Light Sensor");
-        value38.put(COLUMN_TITLE, "Photoresistor Digital Light ON/OFF Detection");
-        value38.put(COLUMN_DESCRIPTION, "This tutorial shows how to use an LDR as a digital light detector. Instead of measuring intensity, the circuit simply detects LIGHT or DARK using a voltage divider and a digital input. When light intensity drops below a threshold, the output becomes LOW or HIGH depending on the wiring. This method is commonly used in daylight detection, security alarms, and energy-saving systems.");
-        value38.put(COLUMN_IMAGE_NAME, "photoresistor_digital");
-        value38.put(COLUMN_PIN_CONNECTION,
+        // Tutorial 36: Photoresistor Digital Light ON/OFF Detection
+        ContentValues value36 = new ContentValues();
+        value36.put(COLUMN_CATEGORY, "Light Sensor");
+        value36.put(COLUMN_TITLE, "Photoresistor Digital Light ON/OFF Detection");
+        value36.put(COLUMN_DESCRIPTION, "This tutorial shows how to use an LDR as a digital light detector. Instead of measuring intensity, the circuit simply detects LIGHT or DARK using a voltage divider and a digital input. When light intensity drops below a threshold, the output becomes LOW or HIGH depending on the wiring. This method is commonly used in daylight detection, security alarms, and energy-saving systems.");
+        value36.put(COLUMN_IMAGE_NAME, "photoresistor_digital");
+        value36.put(COLUMN_PIN_CONNECTION,
                 "• LDR → Connected in series with 10kΩ resistor\n" +
                         "• Junction between LDR & resistor → Digital pin 2\n" +
                         "• LDR → Connected to 5V\n" +
                         "• Resistor → Connected to GND\n" +
                         "• Arduino digital pin 2 → Reads HIGH/LOW light state");
-        value38.put(COLUMN_SAMPLE_CODE,
+        value36.put(COLUMN_SAMPLE_CODE,
                 "int sensor = 2;\n" +
                         "int led = 7;\n" +
                         "\n" +
@@ -1404,19 +1330,19 @@ public class DBHelper extends SQLiteOpenHelper {
                         "    digitalWrite(led, LOW);\n" +
                         "  }\n" +
                         "}");
-        db.insert(TABLE_TUTORIALS, null, value38);
+        db.insert(TABLE_TUTORIALS, null, value36);
 
-        // Tutorial 39: Simple Buzzer On/Off Using Digital Pin
-        ContentValues value39 = new ContentValues();
-        value39.put(COLUMN_CATEGORY, "Sound Modules");
-        value39.put(COLUMN_TITLE, "Simple Buzzer On/Off Using Digital Pin");
-        value39.put(COLUMN_DESCRIPTION, "This tutorial demonstrates how to activate a simple 2-pin buzzer using an Arduino digital output. These buzzers generate a fixed tone when powered and are commonly used in alarms, notifications, and basic sound indicators. The Arduino only controls when the buzzer turns ON or OFF, making it ideal for beginners.");
-        value39.put(COLUMN_IMAGE_NAME, "buzzer_on_off");
-        value39.put(COLUMN_PIN_CONNECTION,
+        // Tutorial 37: Simple Buzzer On/Off Using Digital Pin
+        ContentValues value37 = new ContentValues();
+        value37.put(COLUMN_CATEGORY, "Sound Modules");
+        value37.put(COLUMN_TITLE, "Simple Buzzer On/Off Using Digital Pin");
+        value37.put(COLUMN_DESCRIPTION, "This tutorial demonstrates how to activate a simple 2-pin buzzer using an Arduino digital output. These buzzers generate a fixed tone when powered and are commonly used in alarms, notifications, and basic sound indicators. The Arduino only controls when the buzzer turns ON or OFF, making it ideal for beginners.");
+        value37.put(COLUMN_IMAGE_NAME, "buzzer_on_off");
+        value37.put(COLUMN_PIN_CONNECTION,
                 "• Buzzer positive (+) → Arduino digital pin 7\n" +
                         "• Buzzer negative (–) → GND\n" +
                         "• No resistors are required for standard 5V active buzzers");
-        value39.put(COLUMN_SAMPLE_CODE,
+        value37.put(COLUMN_SAMPLE_CODE,
                 "int buzzer = 7;\n" +
                         "\n" +
                         "void setup(){\n" +
@@ -1429,20 +1355,20 @@ public class DBHelper extends SQLiteOpenHelper {
                         "  digitalWrite(buzzer, LOW);\n" +
                         "  delay(1000);\n" +
                         "}");
-        db.insert(TABLE_TUTORIALS, null, value39);
+        db.insert(TABLE_TUTORIALS, null, value37);
 
-        // Tutorial 40: 3-Pin Passive Buzzer Tone Output
-        ContentValues value40 = new ContentValues();
-        value40.put(COLUMN_CATEGORY, "Sound Modules");
-        value40.put(COLUMN_TITLE, "3-Pin Passive Buzzer Tone Output");
-        value40.put(COLUMN_DESCRIPTION, "This tutorial explains how to generate tones using a passive 3-pin buzzer. Unlike active buzzers, passive modules do not contain an internal oscillator, allowing the Arduino to produce custom tones such as alerts, melodies, and signal patterns. This is achieved by sending frequency-controlled square waves to the buzzer pin.");
-        value40.put(COLUMN_IMAGE_NAME, "passive_buzzer_tone");
-        value40.put(COLUMN_PIN_CONNECTION,
+        // Tutorial 38: 3-Pin Passive Buzzer Tone Output
+        ContentValues value38 = new ContentValues();
+        value38.put(COLUMN_CATEGORY, "Sound Modules");
+        value38.put(COLUMN_TITLE, "3-Pin Passive Buzzer Tone Output");
+        value38.put(COLUMN_DESCRIPTION, "This tutorial explains how to generate tones using a passive 3-pin buzzer. Unlike active buzzers, passive modules do not contain an internal oscillator, allowing the Arduino to produce custom tones such as alerts, melodies, and signal patterns. This is achieved by sending frequency-controlled square waves to the buzzer pin.");
+        value38.put(COLUMN_IMAGE_NAME, "passive_buzzer_tone");
+        value38.put(COLUMN_PIN_CONNECTION,
                 "• SIG (signal) pin → Arduino digital pin 8\n" +
                         "• VCC → 5V\n" +
                         "• GND → GND\n" +
                         "• The passive buzzer requires tone() for frequency control");
-        value40.put(COLUMN_SAMPLE_CODE,
+        value38.put(COLUMN_SAMPLE_CODE,
                 "int buzzer = 8;\n" +
                         "\n" +
                         "void setup(){\n" +
@@ -1454,20 +1380,20 @@ public class DBHelper extends SQLiteOpenHelper {
                         "  noTone(buzzer);\n" +
                         "  delay(1000);\n" +
                         "}");
-        db.insert(TABLE_TUTORIALS, null, value40);
+        db.insert(TABLE_TUTORIALS, null, value38);
 
-        // Tutorial 41: Playing Multiple Frequencies on Passive Buzzer
-        ContentValues value41 = new ContentValues();
-        value41.put(COLUMN_CATEGORY, "Sound Modules");
-        value41.put(COLUMN_TITLE, "Playing Multiple Frequencies on Passive Buzzer");
-        value41.put(COLUMN_DESCRIPTION, "This tutorial demonstrates how to play multiple frequencies to create varying sound patterns using a passive buzzer. By rapidly changing the tone frequency, the Arduino can generate alarms, melodies, and user-defined sound sequences. This method is useful for robotics, notifications, and user interaction feedback.");
-        value41.put(COLUMN_IMAGE_NAME, "buzzer_frequency_play");
-        value41.put(COLUMN_PIN_CONNECTION,
+        // Tutorial 39: Playing Multiple Frequencies on Passive Buzzer
+        ContentValues value39 = new ContentValues();
+        value39.put(COLUMN_CATEGORY, "Sound Modules");
+        value39.put(COLUMN_TITLE, "Playing Multiple Frequencies on Passive Buzzer");
+        value39.put(COLUMN_DESCRIPTION, "This tutorial demonstrates how to play multiple frequencies to create varying sound patterns using a passive buzzer. By rapidly changing the tone frequency, the Arduino can generate alarms, melodies, and user-defined sound sequences. This method is useful for robotics, notifications, and user interaction feedback.");
+        value39.put(COLUMN_IMAGE_NAME, "buzzer_frequency_play");
+        value39.put(COLUMN_PIN_CONNECTION,
                 "• Buzzer signal (S) → Arduino pin 9\n" +
                         "• VCC → 5V\n" +
                         "• GND → GND\n" +
                         "• Passive buzzer required for frequency-based sound generation");
-        value41.put(COLUMN_SAMPLE_CODE,
+        value39.put(COLUMN_SAMPLE_CODE,
                 "int buzzer = 9;\n" +
                         "\n" +
                         "void setup(){\n" +
@@ -1483,25 +1409,25 @@ public class DBHelper extends SQLiteOpenHelper {
                         "  noTone(buzzer);\n" +
                         "  delay(500);\n" +
                         "}");
-        db.insert(TABLE_TUTORIALS, null, value41);
+        db.insert(TABLE_TUTORIALS, null, value39);
 
-        // Tutorial 42: IR Obstacle Detection Sensor
-        ContentValues value42 = new ContentValues();
-        value42.put(COLUMN_CATEGORY, "IR/PIR Sensor");
-        value42.put(COLUMN_TITLE, "IR Obstacle Detection Sensor");
-        value42.put(COLUMN_DESCRIPTION,
+        // Tutorial 40: IR Obstacle Detection Sensor
+        ContentValues value40 = new ContentValues();
+        value40.put(COLUMN_CATEGORY, "IR/PIR Sensor");
+        value40.put(COLUMN_TITLE, "IR Obstacle Detection Sensor");
+        value40.put(COLUMN_DESCRIPTION,
                 "This tutorial demonstrates how to use an Infrared (IR) obstacle detection sensor with Arduino. "
                         + "The sensor works by emitting infrared light and measuring its reflection from nearby objects. "
                         + "When an obstacle enters the detection range, the sensor outputs a LOW or HIGH signal depending on the module type. "
                         + "IR sensors are widely used in robots, line-following systems, automatic lighting, and proximity-based triggers.");
-        value42.put(COLUMN_IMAGE_NAME, "ir_obstacle_sensor");
-        value42.put(COLUMN_PIN_CONNECTION,
+        value40.put(COLUMN_IMAGE_NAME, "ir_obstacle_sensor");
+        value40.put(COLUMN_PIN_CONNECTION,
                 "• VCC → 5V\n"
                         + "• GND → GND\n"
                         + "• OUT (Digital Output) → Arduino digital pin 7\n"
                         + "• Adjustable sensitivity via onboard potentiometer\n"
                         + "• Detection method: Infrared reflection");
-        value42.put(COLUMN_SAMPLE_CODE,
+        value40.put(COLUMN_SAMPLE_CODE,
                 "int ir = 7;\n"
                         + "int led = 13;\n"
                         + "\n"
@@ -1518,27 +1444,27 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "    digitalWrite(led, LOW);\n"
                         + "  }\n"
                         + "}");
-        db.insert(TABLE_TUTORIALS, null, value42);
+        db.insert(TABLE_TUTORIALS, null, value40);
 
-        // Tutorial 43: PIR Motion Sensor
-        ContentValues value43 = new ContentValues();
-        value43.put(COLUMN_CATEGORY, "IR/PIR Sensor");
-        value43.put(COLUMN_TITLE, "PIR Motion Sensor");
-        value43.put(COLUMN_DESCRIPTION,
+        // Tutorial 41: PIR Motion Sensor
+        ContentValues value41 = new ContentValues();
+        value41.put(COLUMN_CATEGORY, "IR/PIR Sensor");
+        value41.put(COLUMN_TITLE, "PIR Motion Sensor");
+        value41.put(COLUMN_DESCRIPTION,
                 "This tutorial explains how to use a Passive Infrared (PIR) motion sensor with Arduino. "
                         + "A PIR sensor detects movement by measuring changes in infrared radiation produced by human bodies or animals. "
                         + "It is commonly used in automatic lights, home security systems, and motion-activated alarms. "
                         + "The sensor provides a digital HIGH output when motion is detected and LOW when the area is clear. "
                         + "Sensitivity and delay time can be adjusted using onboard potentiometers.");
-        value43.put(COLUMN_IMAGE_NAME, "pir_motion_sensor");
-        value43.put(COLUMN_PIN_CONNECTION,
+        value41.put(COLUMN_IMAGE_NAME, "pir_motion_sensor");
+        value41.put(COLUMN_PIN_CONNECTION,
                 "• VCC → 5V\n"
                         + "• GND → GND\n"
                         + "• OUT (Digital Output) → Arduino digital pin 8\n"
                         + "• Detection Range: Typically 3–7 meters\n"
                         + "• Adjustable sensitivity and delay time\n"
                         + "• Warm-up time: 20–60 seconds depending on module");
-        value43.put(COLUMN_SAMPLE_CODE,
+        value41.put(COLUMN_SAMPLE_CODE,
                 "int pir = 8;\n"
                         + "int led = 13;\n"
                         + "\n"
@@ -1555,26 +1481,26 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "    digitalWrite(led, LOW);\n"
                         + "  }\n"
                         + "}");
-        db.insert(TABLE_TUTORIALS, null, value43);
+        db.insert(TABLE_TUTORIALS, null, value41);
 
-        // Tutorial 44: PIR Motion Sensor with Serial Output
-        ContentValues value44 = new ContentValues();
-        value44.put(COLUMN_CATEGORY, "IR/PIR Sensor");
-        value44.put(COLUMN_TITLE, "PIR Motion Sensor with Serial Output");
-        value44.put(COLUMN_DESCRIPTION,
+        // Tutorial 42: PIR Motion Sensor with Serial Output
+        ContentValues value42 = new ContentValues();
+        value42.put(COLUMN_CATEGORY, "IR/PIR Sensor");
+        value42.put(COLUMN_TITLE, "PIR Motion Sensor with Serial Output");
+        value42.put(COLUMN_DESCRIPTION,
                 "This tutorial extends the basic PIR motion sensor setup by adding Serial Monitor output. "
                         + "When the sensor detects movement, it prints a notification to the Serial Monitor along with turning on the onboard LED. "
                         + "This method is useful for debugging, data logging, home automation systems, and motion-triggered event tracking. "
                         + "The PIR module detects infrared changes caused by human or animal movement, outputting a HIGH signal when motion is present.");
-        value44.put(COLUMN_IMAGE_NAME, "pir_with_serial");
-        value44.put(COLUMN_PIN_CONNECTION,
+        value42.put(COLUMN_IMAGE_NAME, "pir_with_serial");
+        value42.put(COLUMN_PIN_CONNECTION,
                 "• VCC → 5V\n"
                         + "• GND → GND\n"
                         + "• OUT (Digital Output) → Arduino digital pin 8\n"
                         + "• Adjustable delay & sensitivity using onboard potentiometers\n"
                         + "• Warm-up time: 20–60 seconds\n"
                         + "• Recommended usage: indoor motion detection, alarms, security monitoring");
-        value44.put(COLUMN_SAMPLE_CODE,
+        value42.put(COLUMN_SAMPLE_CODE,
                 "int pir = 8;\n"
                         + "\n"
                         + "void setup(){\n"
@@ -1591,19 +1517,19 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "  }\n"
                         + "  delay(300);\n"
                         + "}");
-        db.insert(TABLE_TUTORIALS, null, value44);
+        db.insert(TABLE_TUTORIALS, null, value42);
 
-        // Tutorial 45: Joystick Controlling 4 LEDs
-        ContentValues value45 = new ContentValues();
-        value45.put(COLUMN_CATEGORY, "Joystick");
-        value45.put(COLUMN_TITLE, "Joystick Controlling 4 LEDs");
-        value45.put(COLUMN_DESCRIPTION,
+        // Tutorial 43: Joystick Controlling 4 LEDs
+        ContentValues value43 = new ContentValues();
+        value43.put(COLUMN_CATEGORY, "Joystick");
+        value43.put(COLUMN_TITLE, "Joystick Controlling 4 LEDs");
+        value43.put(COLUMN_DESCRIPTION,
                 "This tutorial shows how to use a two-axis analog joystick to control four LEDs in the UP, DOWN, LEFT, and RIGHT directions. "
                         + "The joystick provides two analog values (X and Y), each ranging from 0 to 1023. "
                         + "Based on the joystick position, the Arduino activates the LED corresponding to the direction pushed. "
                         + "This setup is commonly used in robotic controls, menu navigation, and gaming interfaces.");
-        value45.put(COLUMN_IMAGE_NAME, "joystick_4_leds");
-        value45.put(COLUMN_PIN_CONNECTION,
+        value43.put(COLUMN_IMAGE_NAME, "joystick_four_leds");
+        value43.put(COLUMN_PIN_CONNECTION,
                 "• VCC → 5V\n"
                         + "• GND → GND\n"
                         + "• VRx (X-axis) → A0\n"
@@ -1615,7 +1541,7 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "• LED_RIGHT → Pin 5\n"
                         + "• Joystick center position: approx. 512 on both X & Y axes\n"
                         + "• Movement direction detected by thresholding analog values");
-        value45.put(COLUMN_SAMPLE_CODE,
+        value43.put(COLUMN_SAMPLE_CODE,
                 "int xPin = A0;\n"
                         + "int yPin = A1;\n"
                         + "int topLed = 2;\n"
@@ -1639,26 +1565,26 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "  digitalWrite(leftLed,   xValue < 300);\n"
                         + "  digitalWrite(rightLed,  xValue > 700);\n"
                         + "}");
-        db.insert(TABLE_TUTORIALS, null, value45);
+        db.insert(TABLE_TUTORIALS, null, value43);
 
-        // Tutorial 46: Rain Drop Sensor (Basic Read)
-        ContentValues value46 = new ContentValues();
-        value46.put(COLUMN_CATEGORY, "Rain Drop Sensor");
-        value46.put(COLUMN_TITLE, "Rain Drop Sensor (Basic Read)");
-        value46.put(COLUMN_DESCRIPTION,
+        // Tutorial 44: Rain Drop Sensor (Basic Read)
+        ContentValues value44 = new ContentValues();
+        value44.put(COLUMN_CATEGORY, "Rain Drop Sensor");
+        value44.put(COLUMN_TITLE, "Rain Drop Sensor (Basic Read)");
+        value44.put(COLUMN_DESCRIPTION,
                 "This tutorial explains how to read basic rain detection using a raindrop sensor module. "
                         + "The sensor consists of a rain board and a control module. As water droplets accumulate, "
                         + "the module’s digital output changes state, indicating dry or wet conditions. "
                         + "This setup is commonly used in weather stations, garden systems, window automation, and rain alarms.");
-        value46.put(COLUMN_IMAGE_NAME, "raindrop_basic");
-        value46.put(COLUMN_PIN_CONNECTION,
+        value44.put(COLUMN_IMAGE_NAME, "raindrop_basic");
+        value44.put(COLUMN_PIN_CONNECTION,
                 "• VCC → 5V\n"
                         + "• GND → GND\n"
                         + "• DO (Digital Output) → Arduino digital pin 7\n"
                         + "• Sensor Board → Connect to module via provided 2-pin cable\n"
                         + "• Digital Output: HIGH = Dry, LOW = Rain Detected\n"
                         + "• Sensitivity adjustable via onboard potentiometer");
-        value46.put(COLUMN_SAMPLE_CODE,
+        value44.put(COLUMN_SAMPLE_CODE,
                 "int rain = 7;\n"
                         + "int led = 13;\n"
                         + "\n"
@@ -1675,19 +1601,19 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "    digitalWrite(led, LOW);\n"
                         + "  }\n"
                         + "}");
-        db.insert(TABLE_TUTORIALS, null, value46);
+        db.insert(TABLE_TUTORIALS, null, value44);
 
-        // Tutorial 47: Rain Drop Sensor with Serial Output
-        ContentValues value47 = new ContentValues();
-        value47.put(COLUMN_CATEGORY, "Rain Drop Sensor");
-        value47.put(COLUMN_TITLE, "Rain Drop Sensor with Serial Output");
-        value47.put(COLUMN_DESCRIPTION,
+        // Tutorial 45: Rain Drop Sensor with Serial Output
+        ContentValues value45 = new ContentValues();
+        value45.put(COLUMN_CATEGORY, "Rain Drop Sensor");
+        value45.put(COLUMN_TITLE, "Rain Drop Sensor with Serial Output");
+        value45.put(COLUMN_DESCRIPTION,
                 "This tutorial expands the basic raindrop sensor usage by adding Serial Monitor output. "
                         + "The rain sensor module detects moisture on the rain board and outputs a digital signal. "
                         + "With Serial printing enabled, you can monitor rain detection status in real-time, making it ideal for data logging, "
                         + "environmental monitoring, smart agriculture, and automated window systems.");
-        value47.put(COLUMN_IMAGE_NAME, "raindrop_serial");
-        value47.put(COLUMN_PIN_CONNECTION,
+        value45.put(COLUMN_IMAGE_NAME, "raindrop_serial");
+        value45.put(COLUMN_PIN_CONNECTION,
                 "• VCC → 5V\n"
                         + "• GND → GND\n"
                         + "• DO (Digital Output) → Arduino digital pin 7\n"
@@ -1696,7 +1622,7 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "    - HIGH = Dry surface\n"
                         + "    - LOW  = Rain detected / Wet surface\n"
                         + "• Onboard potentiometer allows sensitivity adjustment");
-        value47.put(COLUMN_SAMPLE_CODE,
+        value45.put(COLUMN_SAMPLE_CODE,
                 "int rain = 7;\n"
                         + "\n"
                         + "void setup(){\n"
@@ -1713,16 +1639,16 @@ public class DBHelper extends SQLiteOpenHelper {
                         + "  }\n"
                         + "  delay(300);\n"
                         + "}");
-        db.insert(TABLE_TUTORIALS, null, value47);
+        db.insert(TABLE_TUTORIALS, null, value45);
 
-        // Tutorial 48: Relay With Water Pump
-        ContentValues values48 = new ContentValues();
-        values48.put(COLUMN_CATEGORY, "Actuators");
-        values48.put(COLUMN_TITLE, "Relay Control with Water Pump");
-        values48.put(COLUMN_DESCRIPTION, "Learn how to control a water pump using a relay module.");
-        values48.put(COLUMN_IMAGE_NAME, "relay_water_pump");
-        values48.put(COLUMN_PIN_CONNECTION, "Relay IN -> D7\nVCC -> 5V\nGND -> GND");
-        values48.put(COLUMN_SAMPLE_CODE,
+        // Tutorial 46: Relay With Water Pump
+        ContentValues values46 = new ContentValues();
+        values46.put(COLUMN_CATEGORY, "Actuators");
+        values46.put(COLUMN_TITLE, "Relay Control with Water Pump");
+        values46.put(COLUMN_DESCRIPTION, "Learn how to control a water pump using a relay module.");
+        values46.put(COLUMN_IMAGE_NAME, "relay_water_pump");
+        values46.put(COLUMN_PIN_CONNECTION, "Relay IN -> D7\nVCC -> 5V\nGND -> GND");
+        values46.put(COLUMN_SAMPLE_CODE,
                 "const int relayPin = 7;\n\n" +
                         "void setup() {\n" +
                         "  pinMode(relayPin, OUTPUT);\n" +
@@ -1733,18 +1659,18 @@ public class DBHelper extends SQLiteOpenHelper {
                         "  digitalWrite(relayPin, LOW);  // Pump OFF\n" +
                         "  delay(5000);\n" +
                         "}");
-        db.insert(TABLE_TUTORIALS, null, values48);
+        db.insert(TABLE_TUTORIALS, null, values46);
 
-        // Tutorial 49: Keypad - Print to Serial
-        ContentValues values49 = new ContentValues();
-        values49.put(COLUMN_CATEGORY, "Keypad");
-        values49.put(COLUMN_TITLE, "Keypad Serial Print");
-        values49.put(COLUMN_DESCRIPTION, "Learn how to read a 4x4 keypad and print key presses to the Serial Monitor.");
-        values49.put(COLUMN_IMAGE_NAME, "keypad_serial");
-        values49.put(COLUMN_PIN_CONNECTION,
+        // Tutorial 47: Keypad - Print to Serial
+        ContentValues values47 = new ContentValues();
+        values47.put(COLUMN_CATEGORY, "Keypad");
+        values47.put(COLUMN_TITLE, "Keypad Serial Print");
+        values47.put(COLUMN_DESCRIPTION, "Learn how to read a 4x4 keypad and print key presses to the Serial Monitor.");
+        values47.put(COLUMN_IMAGE_NAME, "keypad_serial");
+        values47.put(COLUMN_PIN_CONNECTION,
                 "Keypad Rows -> D9, D8, D7, D6\nKeypad Cols -> D5, D4, D3, D2");
 
-        values49.put(COLUMN_SAMPLE_CODE,
+        values47.put(COLUMN_SAMPLE_CODE,
                 "#include <Keypad.h>\n\n" +
                         "const byte ROWS = 4;\n" +
                         "const byte COLS = 4;\n\n" +
@@ -1767,19 +1693,19 @@ public class DBHelper extends SQLiteOpenHelper {
                         "  }\n" +
                         "}");
 
-        db.insert(TABLE_TUTORIALS, null, values49);
+        db.insert(TABLE_TUTORIALS, null, values47);
 
-        // Tutorial 50: Keypad with Password
-        ContentValues values50 = new ContentValues();
-        values50.put(COLUMN_CATEGORY, "Keypad");
-        values50.put(COLUMN_TITLE, "Keypad Password System");
-        values50.put(COLUMN_DESCRIPTION,
+        // Tutorial 48: Keypad with Password
+        ContentValues values48 = new ContentValues();
+        values48.put(COLUMN_CATEGORY, "Keypad");
+        values48.put(COLUMN_TITLE, "Keypad Password System");
+        values48.put(COLUMN_DESCRIPTION,
                 "Enter a password using a 4x4 keypad. If the password is correct, an LED turns ON.");
-        values50.put(COLUMN_IMAGE_NAME, "keypad_password");
-        values50.put(COLUMN_PIN_CONNECTION,
+        values48.put(COLUMN_IMAGE_NAME, "keypad_password");
+        values48.put(COLUMN_PIN_CONNECTION,
                 "Keypad Rows -> D9, D8, D7, D6\nKeypad Cols -> D5, D4, D3, D2\nLED -> D10");
 
-        values50.put(COLUMN_SAMPLE_CODE,
+        values48.put(COLUMN_SAMPLE_CODE,
                 "#include <Keypad.h>\n\n" +
                         "const byte ROWS = 4;\n" +
                         "const byte COLS = 4;\n\n" +
@@ -1819,19 +1745,19 @@ public class DBHelper extends SQLiteOpenHelper {
                         "  }\n" +
                         "}");
 
-        db.insert(TABLE_TUTORIALS, null, values50);
+        db.insert(TABLE_TUTORIALS, null, values48);
 
-        // Tutorial 51: I2C Communication
-        ContentValues values51 = new ContentValues();
-        values51.put(COLUMN_CATEGORY, "I2C Connection");
-        values51.put(COLUMN_TITLE, "I2C: Arduino Master & Slave");
-        values51.put(COLUMN_DESCRIPTION,
+        // Tutorial 49: I2C Communication
+        ContentValues values49 = new ContentValues();
+        values49.put(COLUMN_CATEGORY, "I2C Connection");
+        values49.put(COLUMN_TITLE, "I2C: Arduino Master & Slave");
+        values49.put(COLUMN_DESCRIPTION,
                 "Learn how to communicate between two Arduino boards using the I2C protocol.");
-        values51.put(COLUMN_IMAGE_NAME, "i2c_comm");
-        values51.put(COLUMN_PIN_CONNECTION,
+        values49.put(COLUMN_IMAGE_NAME, "i_two_c_comm");
+        values49.put(COLUMN_PIN_CONNECTION,
                 "SDA -> A4 on both Arduinos\nSCL -> A5 on both Arduinos\nGND -> GND");
 
-        values51.put(COLUMN_SAMPLE_CODE,
+        values49.put(COLUMN_SAMPLE_CODE,
                 "// --- MASTER CODE ---\n" +
                         "#include <Wire.h>\n\n" +
                         "void setup() {\n" +
@@ -1860,7 +1786,7 @@ public class DBHelper extends SQLiteOpenHelper {
                         "  }\n" +
                         "}");
 
-        db.insert(TABLE_TUTORIALS, null, values51);
+        db.insert(TABLE_TUTORIALS, null, values49);
 
 
 

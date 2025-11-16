@@ -23,10 +23,8 @@
 
     <TextView
         android:id="@+id/titleNameID"
-        android:layout_width="0dp"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:ellipsize="end"
         android:gravity="center"
         android:maxLines="2"
@@ -34,10 +32,11 @@
         android:textColor="#830F97"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/backToListIconID"
-        app:layout_constraintEnd_toStartOf="@id/editIconID"
-        app:layout_constraintStart_toEndOf="@id/backToListIconID"
-        app:layout_constraintTop_toTopOf="@id/backToListIconID" />
+        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/editIconID"
@@ -52,6 +51,7 @@
         app:layout_constraintVertical_bias="0.977" />
 
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"

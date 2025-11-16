@@ -73,7 +73,7 @@
         android:id="@+id/versionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="version 1.0"
+        android:text="version 2.0"
         android:textColor="#DBD9D9"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"

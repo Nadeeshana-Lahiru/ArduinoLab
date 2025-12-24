@@ -141,11 +141,17 @@ ArduinoLab focuses heavily on **modern, premium UI/UX design** optimized for lon
 - Individual Tutorial Screens  
 - Code & Explanation Views  
 
-![img1](https://github.com/user-attachments/assets/35ea9659-0e54-453b-85df-c2e2ec26115c)
+## 📸 Screenshots
 
-![img2](https://github.com/user-attachments/assets/6e8d394e-7798-4480-b877-81ae46eef539)
+## 📸 Screenshots
 
-![img3](https://github.com/user-attachments/assets/fe365848-c7be-4266-88f7-7052f3e9c070)
+| Splash Screen | Home Dashboard | Tutorial Grid | Core Programming |
+|---------------|----------------|---------------|------------------|
+| ![img1](https://github.com/user-attachments/assets/0464b52f-7d15-447d-aa29-1c8f42cebc8f) | ![img2](https://github.com/user-attachments/assets/db61dace-d5aa-4510-a27e-e5175cc0dd29) | ![img3](https://github.com/user-attachments/assets/84271736-45cb-47f4-9fd4-89e8f320fb81) | ![img4](https://github.com/user-attachments/assets/92d7abe3-9b4d-43cf-9eac-1265a69b6b19) |
+
+| My Projects | Update Tutorial | Tutorial Screen |
+|----------------|-----------------|---------------|
+| ![img6](https://github.com/user-attachments/assets/376a6479-9ef0-413e-b5f6-7faec9ff8338) | ![img7](https://github.com/user-attachments/assets/3728e5b6-df46-4fdd-8aca-075d8857edfe) | ![img8](https://github.com/user-attachments/assets/c0268bc3-e286-489b-88df-9c428bc16eb1) |
 
 ---
 

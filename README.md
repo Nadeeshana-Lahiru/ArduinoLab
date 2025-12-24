@@ -6,7 +6,6 @@ From blinking a single LED to working with advanced sensors, motors, and display
 📱 Download APK
 You can directly download and install the app: https://drive.google.com/file/d/1ju19EkLqLYqENVQDXGsC1MMoZRChKvra/view?usp=drive_link
 
-📥 Download ArduinoLab APK
 ⚠️ Enable installation from Unknown Sources in your device settings before installing.
 
 ---

@@ -254,18 +254,9 @@ Contributions help improve ArduinoLab and make learning more accessible.
 ### How to Contribute
 
 1. Fork the repository
-2. Create a new branch
-
-   git checkout -b feature/YourFeature
-
-3. Commit your changes
-
-   git commit -m "Add new feature"
-
-4. Push to GitHub
-
-   git push origin feature/YourFeature
-
+2. Create a new branch : git checkout -b feature/YourFeature
+3. Commit your changes: git commit -m "Add new feature"
+4. Push to GitHub: git push origin feature/YourFeature
 5. Open a Pull Request
 
 ---
@@ -273,7 +264,13 @@ Contributions help improve ArduinoLab and make learning more accessible.
 ## 📄 License
 
 This project is licensed under the **MIT License**.
-See the `LICENSE` file for more details. ⚖️
+
+You are free to:
+- Use the project for personal or commercial purposes
+- Modify and distribute the source code
+- Include it in academic or portfolio work
+
+See the [LICENSE](LICENSE) file for full license details.
 
 ---
 

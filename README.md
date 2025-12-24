@@ -10,28 +10,6 @@ You can directly download and install the app: https://drive.google.com/file/d/1
 
 ---
 
-## 📌 Table of Contents
-
-- Overview  
-- Objectives  
-- Target Audience  
-- Key Features & Learning Modules  
-- Detailed Module Breakdown  
-- UI/UX Design Highlights  
-- App Architecture & Structure  
-- Screens & Navigation Flow  
-- Getting Started  
-- Installation  
-- Usage  
-- Built With  
-- Performance & Compatibility  
-- Future Enhancements  
-- Contributing  
-- License  
-- Contact  
-
----
-
 ## 🌟 Overview
 
 ArduinoLab provides a **visually guided, beginner-friendly learning experience** for Arduino electronics and programming.  
